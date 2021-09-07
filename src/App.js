@@ -1,10 +1,12 @@
 import './App.css';
+import ItemListContainer from './components/NavBar/ItemListContainer';
 import NavBar from './components/NavBar/NavBar';
 
 function App() {
 	return (
 		<>
 			<NavBar />
+			<ItemListContainer saludo={'Hola! Aquí va el catalogo de productos.'} />
 		</>
 	);
 }

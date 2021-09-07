@@ -56,3 +56,13 @@
 	background-color: yellow;
 	color: black;
 }
+.carrito {
+	height: 49px;
+	padding: 7px 10px;
+	margin-left: 20px;
+	cursor: pointer;
+}
+.contenidoH1 {
+	margin: 40px;
+	text-align: center;
+}

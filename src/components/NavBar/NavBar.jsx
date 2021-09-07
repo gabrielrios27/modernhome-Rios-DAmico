@@ -1,4 +1,5 @@
 import logo from '../../logo.jpg';
+import CartWidget from './CartWidget';
 import style from './NavBar.module.css';
 
 function NavBar() {
@@ -15,6 +16,9 @@ function NavBar() {
 							<li className={style.item}>Ceramicos</li>
 							<li className={style.item}>Piedra</li>
 						</ul>
+					</li>
+					<li>
+						<CartWidget />
 					</li>
 				</ul>
 			</nav>
