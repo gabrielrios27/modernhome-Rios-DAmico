@@ -16,6 +16,7 @@
 	list-style: none;
 	display: flex;
 	align-items: center;
+	justify-self: flex-end;
 }
 .listas {
 	position: relative;
@@ -28,21 +29,22 @@
 	background-color: yellow;
 	color: black;
 }
-.listas:last-child:hover .sublista {
-	display: block;
-}
+
 .sublista {
+	display: none;
 	width: 166.25px;
 	position: absolute;
 	top: 100%;
 	left: 0px;
-	display: none;
 	flex-direction: column;
 	align-items: center;
 	padding: 5px;
 	background-color: black;
 	list-style: none;
 	border-radius: 3px;
+}
+.listaRevestimientos:hover .sublista {
+	display: block;
 }
 .item {
 	width: 155px;
@@ -61,6 +63,11 @@
 	padding: 7px 10px;
 	margin-left: 20px;
 	cursor: pointer;
+}
+.contenedorGral {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 .contenidoH1 {
 	margin: 40px;

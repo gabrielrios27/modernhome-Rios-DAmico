@@ -9,7 +9,7 @@ function NavBar() {
 				<img src={logo} className={style.logo} alt="logo" />
 				<ul className={style.categorias}>
 					<li className={style.listas}>Pisos</li>
-					<li className={style.listas}>
+					<li className={style.listas + ' ' + style.listaRevestimientos}>
 						Revestimientos
 						<ul className={style.sublista}>
 							<li className={style.item}>Vidrios</li>
