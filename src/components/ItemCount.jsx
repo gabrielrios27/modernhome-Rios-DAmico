@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import style from './ItemCount.module.css';
-import piso from '../imagenes/pisos/cleveland.jpg';
 function ItemCount({ stock, initial, onAdd }) {
 	const [count, setCount] = useState(initial);
 	function sumar() {
@@ -17,9 +16,7 @@ function ItemCount({ stock, initial, onAdd }) {
 		onAdd(count);
 	}
 	return (
-		<div className={style.item}>
-			<img src={piso} className={style.imgPiso} alt="porcelanato simil madera en living" />
-			<h4 className={style.nombrePiso}>Porcelanato Cleveland Taupe 23x120</h4>
+		<div className={style.itemContador}>
 			<label>{count}</label>
 			<div className={style.contador}>
 				<button className={style.btnRestar} onClick={restar}>

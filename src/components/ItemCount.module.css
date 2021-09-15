@@ -1,19 +1,31 @@
 .item {
 	width: 300px;
 	padding: 10px 5px;
+	margin: 20px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	background-color: rgba(31, 31, 31, 0.199);
 	border-radius: 3px;
 }
+.itemContador {
+	width: 300px;
+	padding: 10px 5px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: rgba(56, 56, 56, 0.103);
+	border-radius: 3px;
+}
 .imgPiso {
 	width: 100%;
+	height: 200px;
+	object-fit: cover;
 	border-radius: 3px;
 }
 .nombrePiso {
 	text-align: center;
-	margin: 10px 0;
+	margin: 10px 0 2px;
 }
 .item label {
 	text-align: center;

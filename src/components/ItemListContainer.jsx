@@ -1,6 +1,8 @@
-import ItemCount from './ItemCount';
 import style from './ItemListContainer.module.css';
 import { getFetch } from '../utils/Mock';
+import ItemList from './ItemList/ItemList';
+import { useState } from 'react';
+import { useEffect } from 'react';
 
 function ItemListContainer(props) {
 	const [productos, setProductos] = useState([]);
@@ -20,8 +22,7 @@ function ItemListContainer(props) {
 	return (
 		<div className={style.contenedorGral}>
 			<h1 className={style.contenidoH1}>{props.saludo}</h1>
-			{loading ? <h2>Cargando...</h2> : <ItemList productos={productos} />}
-			<ItemCount stock={10} initial={1} onAdd={onAdd} />
+			{loading ? <h2>Cargando...</h2> : <ItemList productos={productos} onAdd={onAdd} />}
 		</div>
 	);
 }
