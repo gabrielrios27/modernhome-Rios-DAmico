@@ -138,3 +138,21 @@ export const getFetch = new Promise((resolve) => {
 		resolve(productos);
 	}, 3000);
 });
+
+const producto = {
+	id: 6,
+	nombre: 'Calacata',
+	medida: '60x60',
+	caja: 1.44,
+	precio: 4300,
+	imagen: 'pisos/calacata.jpg',
+	cantidad: 0,
+	pegamento: false,
+	pastina: false,
+};
+
+export const getFetchUno = new Promise((resolve) => {
+	setTimeout(() => {
+		resolve(producto);
+	}, 2000);
+});

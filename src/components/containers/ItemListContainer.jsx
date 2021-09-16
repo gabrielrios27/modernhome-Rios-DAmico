@@ -1,6 +1,6 @@
 import style from './ItemListContainer.module.css';
-import { getFetch } from '../utils/Mock';
-import ItemList from './ItemList/ItemList';
+import { getFetch } from '../../utils/Mock';
+import ItemList from '../ItemList/ItemList';
 import { useState } from 'react';
 import { useEffect } from 'react';
 
