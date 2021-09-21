@@ -7,6 +7,7 @@
 	color: white;
 }
 .logo {
+	height: 100%;
 	padding: 6px 20px;
 	cursor: pointer;
 }
@@ -19,11 +20,17 @@
 	justify-self: flex-end;
 }
 .listas {
+	color: rgb(245, 245, 245);
+	list-style: none;
 	position: relative;
 	padding: 15px 30px;
 	cursor: pointer;
 	border-radius: 3px;
 	transition: 0.4s;
+	font-weight: 600;
+}
+a {
+	text-decoration: none;
 }
 .listas:hover {
 	background-color: yellow;

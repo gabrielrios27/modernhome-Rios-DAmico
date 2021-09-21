@@ -1,6 +1,7 @@
 const productos = [
 	{
 		id: 1,
+		categoria: 'pisos',
 		nombre: 'Carrara',
 		medida: '60x120',
 		caja: 1.44,
@@ -12,6 +13,7 @@ const productos = [
 	},
 	{
 		id: 2,
+		categoria: 'pisos',
 		nombre: 'Onix',
 		medida: '60x60',
 		caja: 1.44,
@@ -23,6 +25,7 @@ const productos = [
 	},
 	{
 		id: 3,
+		categoria: 'pisos',
 		nombre: 'Bauhaus',
 		medida: '58x58',
 		caja: 1.35,
@@ -34,6 +37,7 @@ const productos = [
 	},
 	{
 		id: 4,
+		categoria: 'pisos',
 		nombre: 'Linen',
 		medida: '60x60',
 		caja: 1.44,
@@ -45,6 +49,7 @@ const productos = [
 	},
 	{
 		id: 5,
+		categoria: 'pisos',
 		nombre: 'Artec',
 		medida: '60x60',
 		caja: 1.44,
@@ -56,6 +61,7 @@ const productos = [
 	},
 	{
 		id: 6,
+		categoria: 'pisos',
 		nombre: 'Calacata',
 		medida: '60x60',
 		caja: 1.44,
@@ -67,6 +73,7 @@ const productos = [
 	},
 	{
 		id: 7,
+		categoria: 'pisos',
 		nombre: 'Amur',
 		medida: '60x60',
 		caja: 1.44,
@@ -78,6 +85,7 @@ const productos = [
 	},
 	{
 		id: 8,
+		categoria: 'pisos',
 		nombre: 'Porfido',
 		medida: '58x58',
 		caja: 1.35,
@@ -89,6 +97,7 @@ const productos = [
 	},
 	{
 		id: 9,
+		categoria: 'pisos',
 		nombre: 'Oxidum',
 		medida: '60x60',
 		caja: 1.44,
@@ -100,6 +109,7 @@ const productos = [
 	},
 	{
 		id: 10,
+		categoria: 'pisos',
 		nombre: 'Cleveland',
 		medida: '23x120',
 		caja: 1.12,
@@ -111,6 +121,7 @@ const productos = [
 	},
 	{
 		id: 11,
+		categoria: 'pisos',
 		nombre: 'Muse',
 		medida: '50x100',
 		caja: 1,
@@ -122,11 +133,48 @@ const productos = [
 	},
 	{
 		id: 12,
+		categoria: 'pisos',
 		nombre: 'Vermont',
 		medida: '15x90',
 		caja: 0.95,
 		precio: 4400,
 		imagen: 'pisos/vermont.jpg',
+		cantidad: 0,
+		pegamento: false,
+		pastina: false,
+	},
+	{
+		id: 13,
+		categoria: 'vidrios',
+		nombre: 'Vermont',
+		medida: '15x90',
+		caja: 0.95,
+		precio: 4400,
+		imagen: 'pisos/vermont.jpg',
+		cantidad: 0,
+		pegamento: false,
+		pastina: false,
+	},
+	{
+		id: 14,
+		categoria: 'ceramicos',
+		nombre: 'Muse',
+		medida: '50x100',
+		caja: 1,
+		precio: 4700,
+		imagen: 'pisos/muse.jpg',
+		cantidad: 0,
+		pegamento: false,
+		pastina: false,
+	},
+	{
+		id: 15,
+		categoria: 'piedras',
+		nombre: 'Oxidum',
+		medida: '60x60',
+		caja: 1.44,
+		precio: 4200,
+		imagen: 'pisos/oxidum.jpg',
 		cantidad: 0,
 		pegamento: false,
 		pastina: false,
@@ -141,6 +189,7 @@ export const getFetch = new Promise((resolve) => {
 
 const producto = {
 	id: 6,
+	categoria: 'pisos',
 	nombre: 'Calacata',
 	medida: '60x60',
 	caja: 1.44,

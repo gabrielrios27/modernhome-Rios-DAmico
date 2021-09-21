@@ -5,7 +5,7 @@ function ItemDetail({ item }) {
 		<>
 			<div key={item.id} className={style.detalle}>
 				<img
-					src={item.imagen}
+					src={`../${item.imagen}`}
 					className={style.detalle__img}
 					alt="porcelanato simil madera en living"
 				/>

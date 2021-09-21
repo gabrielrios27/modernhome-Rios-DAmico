@@ -1,4 +1,4 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
 import ItemCount from '../ItemCount';
 import style from '../ItemCount.module.css';
 
@@ -14,7 +14,9 @@ function Item({ producto, onAdd }) {
 			<h5>{producto.medida}</h5>
 			<ItemCount stock={10} initial={1} onAdd={onAdd} />
 			<div>
-				<button>Detalles</button>
+				<Link to={`/detalle/${producto.id}`}>
+					<button>Detalles</button>
+				</Link>
 			</div>
 		</div>
 	);
