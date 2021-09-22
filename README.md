@@ -1,3 +1,7 @@
+El proyecto es un Ecommerce para el negocio de mi familia, en el cual vendemos pisos y revestimientos. Ya contamos con una pagina web ModernHome-Allentiac en donde solo se muestran los productos.
+La idea es hacer una web de facil y rapida navegabilidad para unir al proyecto del curso js en donde desarrollé una aplicacion en donde con el celular se puede leer el codigo qr del producto y obtener todos los detalles del mismo incluido su precio, asi los clientes que se encuentren en el salon comercial podran usar sus celulares para hacer la compra, disminuyendo la necesidad de una atencion personalizada.
+No incluí dependencias extras y decidi trabajar con mis propios estilos ya que siento mayor libertad para hacer el diseño de la pagina en ves usar react-bootstrap u otro.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

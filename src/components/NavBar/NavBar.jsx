@@ -29,10 +29,11 @@ function NavBar() {
 							</Link>
 						</ul>
 					</li>
-
-					<li>
-						<CartWidget />
-					</li>
+					<Link to="/cart">
+						<li>
+							<CartWidget />
+						</li>
+					</Link>
 				</ul>
 			</nav>
 		</>
