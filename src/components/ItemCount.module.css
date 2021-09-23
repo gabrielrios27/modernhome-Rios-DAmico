@@ -38,14 +38,20 @@
 	text-align: center;
 	margin: 10px 0 2px;
 }
-.item label {
+
+.contador {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 5px;
+}
+.contadorLabel {
+	display: inline-block;
 	text-align: center;
 	width: 70px;
+	margin: 5px;
 	padding: 2px 25px;
 	background-color: rgb(241, 241, 241);
-}
-.contador {
-	margin: 5px;
 }
 .btnRestar,
 .btnSumar,
@@ -65,6 +71,7 @@
 	align-items: center;
 	flex-wrap: wrap;
 }
+
 .btnSeguir {
 	background-color: yellow;
 	color: black;

@@ -24,8 +24,7 @@ function ItemCountList({ stock, initial, onAdd }) {
 				<button className={style.btnRestar} onClick={restar}>
 					-
 				</button>
-				<label>{count}</label>
-
+				<label className={style.contadorLabel}>{count}</label>
 				<button className={style.btnSumar} onClick={sumar}>
 					+
 				</button>
@@ -38,7 +37,7 @@ function ItemCountList({ stock, initial, onAdd }) {
 				) : (
 					<div className={style.btnContainer}>
 						<button className={style.btnAgregar} onClick={agregar}>
-							Agregar
+							Agregar +
 						</button>
 						<Link to="/cart">
 							<button className={style.btnTerminar} onClick={agregar}>
