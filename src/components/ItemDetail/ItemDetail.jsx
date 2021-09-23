@@ -1,6 +1,13 @@
-import React from 'react';
+import { useState } from 'react';
 import style from './ItemDetail.module.css';
+import ItemCount from '../ItemCount';
+
 function ItemDetail({ item }) {
+	const [cantSelec, setCantSelec] = useState(0);
+	const onAdd = (cant) => {
+		console.log(`la cantidad es: ${cant}`);
+		setCantSelec(cant);
+	};
 	return (
 		<>
 			<div key={item.id} className={style.detalle}>
@@ -13,6 +20,7 @@ function ItemDetail({ item }) {
 				<h5>{item.medida}</h5>
 				<h5>Caja: {item.caja}m2</h5>
 				<h5 className={style.detalle__precio}>${item.precio} x m2</h5>
+				<ItemCount stock={10} initial={1} onAdd={onAdd} />
 			</div>
 		</>
 	);

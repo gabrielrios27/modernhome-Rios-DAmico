@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import ItemCount from '../ItemCount';
+import ItemCountList from '../ItemCountList';
 import style from '../ItemCount.module.css';
 
 function Item({ producto, onAdd }) {
@@ -12,10 +12,10 @@ function Item({ producto, onAdd }) {
 			/>
 			<h4 className={style.nombrePiso}>Porcelanato: {producto.nombre}</h4>
 			<h5>{producto.medida}</h5>
-			<ItemCount stock={10} initial={1} onAdd={onAdd} />
+			<ItemCountList stock={10} initial={1} onAdd={onAdd} />
 			<div>
 				<Link to={`/detalle/${producto.id}`}>
-					<button>Detalles</button>
+					<button className={style.itemBtnDetalles}>Detalles</button>
 				</Link>
 			</div>
 		</div>

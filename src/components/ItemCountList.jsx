@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import style from './ItemCount.module.css';
 import { Link } from 'react-router-dom';
-function ItemCount({ stock, initial, onAdd }) {
+function ItemCountList({ stock, initial, onAdd }) {
 	const [count, setCount] = useState(initial);
 	const [cambiarBtn, setCambiarBtn] = useState(true);
 	function sumar() {
@@ -19,7 +19,7 @@ function ItemCount({ stock, initial, onAdd }) {
 		setCambiarBtn(false);
 	}
 	return (
-		<div className={style.itemContador}>
+		<div className={style.itemContadorList}>
 			<div className={style.contador}>
 				<button className={style.btnRestar} onClick={restar}>
 					-
@@ -37,11 +37,9 @@ function ItemCount({ stock, initial, onAdd }) {
 					</button>
 				) : (
 					<div className={style.btnContainer}>
-						<Link to="/">
-							<button className={style.btnSeguir} onClick={agregar}>
-								Seguir Comprando
-							</button>
-						</Link>
+						<button className={style.btnAgregar} onClick={agregar}>
+							Agregar
+						</button>
 						<Link to="/cart">
 							<button className={style.btnTerminar} onClick={agregar}>
 								Terminar Compra
@@ -54,4 +52,4 @@ function ItemCount({ stock, initial, onAdd }) {
 	);
 }
 
-export default ItemCount;
+export default ItemCountList;
