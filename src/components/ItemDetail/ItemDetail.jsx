@@ -1,12 +1,15 @@
 import { useState } from 'react';
 import style from './ItemDetail.module.css';
 import ItemCount from '../ItemCount';
+import { Link } from 'react-router-dom';
 
 function ItemDetail({ item }) {
 	const [cantSelec, setCantSelec] = useState(0);
+	const [cambiarBtn, setCambiarBtn] = useState(true);
 	const onAdd = (cant) => {
-		console.log(`la cantidad es: ${cant}`);
 		setCantSelec(cant);
+		console.log(`la cantidad es: ${cant}`);
+		setCambiarBtn(false);
 	};
 	return (
 		<>
@@ -20,7 +23,21 @@ function ItemDetail({ item }) {
 				<h5>{item.medida}</h5>
 				<h5>Caja: {item.caja}m2</h5>
 				<h5 className={style.detalle__precio}>${item.precio} x m2</h5>
-				<ItemCount stock={10} initial={1} onAdd={onAdd} />
+
+				<div>
+					{cambiarBtn ? (
+						<ItemCount stock={10} initial={1} onAdd={onAdd} />
+					) : (
+						<div className={style.btnContainer}>
+							<Link to="/">
+								<button className={style.btnSeguir}>Seguir Comprando</button>
+							</Link>
+							<Link to="/cart">
+								<button className={style.btnTerminar}>Terminar Compra</button>
+							</Link>
+						</div>
+					)}
+				</div>
 			</div>
 		</>
 	);

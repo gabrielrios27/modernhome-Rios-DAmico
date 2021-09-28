@@ -24,3 +24,33 @@
 	color: yellow;
 	font-weight: 700;
 }
+.btnContainer {
+	height: 100px;
+	padding: 10px;
+	background-color: rgba(56, 56, 56, 0.103);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.btnSeguir {
+	background-color: yellow;
+	color: black;
+	border: none;
+	padding: 5px 15px;
+	margin: 5px;
+	cursor: pointer;
+	box-shadow: 0 0 5px rgba(15, 15, 15, 0.493);
+	border-radius: 2px;
+}
+.btnTerminar {
+	background-color: rgb(10, 10, 10);
+	color: yellow;
+	border: solid 1px yellow;
+	padding: 5px 15px;
+	margin: 5px;
+	cursor: pointer;
+	box-shadow: 0 0 5px rgba(15, 15, 15, 0.493);
+	border-radius: 2px;
+}
