@@ -3,7 +3,7 @@ import { useCartContext } from '../context/cartContext';
 import style from './Cart.module.css';
 
 function Cart() {
-	const { cartList } = useCartContext();
+	const { cartList, borrarItem } = useCartContext();
 	console.log(cartList);
 	return (
 		<div>
@@ -18,9 +18,9 @@ function Cart() {
 						<h3>Precio total</h3>
 						<h3>${item.cantidad * item.item.precio}</h3>
 					</div>
-					<div className={style.cart__eliminar}>
+					<button className={style.cart__eliminar} onClick={borrarItem(item.item.id)}>
 						<h4>X</h4>
-					</div>
+					</button>
 				</div>
 			))}
 		</div>

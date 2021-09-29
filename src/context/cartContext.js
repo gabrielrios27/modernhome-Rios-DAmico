@@ -13,7 +13,8 @@ export default function CartContextProvider({ children }) {
 		cartList([]);
 	}
 	function borrarItem(id) {
-		setCartList([cartList.filter((item) => item.item.id !== id)]);
+		// setCartList(cartList.filter(({item}) => item.item.id !== id));
+		console.log(`id a eliminar es: ${id}`);
 	}
 
 	console.log(cartList);

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import style from './ItemCount.module.css';
 import { Link } from 'react-router-dom';
+
 function ItemCount({ stock, initial, onAdd }) {
 	const [count, setCount] = useState(initial);
 	const [cambiarBtn, setCambiarBtn] = useState(true);
