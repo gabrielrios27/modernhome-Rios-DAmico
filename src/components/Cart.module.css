@@ -1,0 +1,12 @@
+.cart {
+	display: flex;
+	justify-content: space-between;
+	padding: 20px;
+	margin: 20px;
+	background-color: rgba(90, 90, 90, 0.226);
+}
+.cart__eliminar {
+	color: brown;
+	cursor: pointer;
+	padding: 20px;
+}
