@@ -18,7 +18,7 @@ function Cart() {
 						<h3>Precio total</h3>
 						<h3>${item.cantidad * item.item.precio}</h3>
 					</div>
-					<button className={style.cart__eliminar} onClick={borrarItem(item.item.id)}>
+					<button className={style.cart__eliminar} onClick={() => borrarItem(item)}>
 						<h4>X</h4>
 					</button>
 				</div>

@@ -6,16 +6,22 @@ export const useCartContext = () => useContext(cartContext);
 
 export default function CartContextProvider({ children }) {
 	const [cartList, setCartList] = useState([]);
+
 	function addToCart(item) {
-		setCartList([...cartList, item]);
+		let CartListAnterior = [...cartList];
+
+		if (CartListAnterior.some((i) => i.item.id === item.item.id)) {
+			CartListAnterior.find((i) => i.item.id === item.item.id).cantidad += item.cantidad;
+			setCartList(CartListAnterior);
+		} else {
+			setCartList([...cartList, item]);
+		}
 	}
-	function borrarLista() {
-		cartList([]);
-	}
-	function borrarItem(id) {
-		// setCartList(cartList.filter(({item}) => item.item.id !== id));
-		console.log(`id a eliminar es: ${id}`);
-	}
+
+	const borrarItem = (product) => {
+		let CartListAnterior = [...cartList];
+		setCartList(CartListAnterior.filter((i) => i.item.id !== product.item.id));
+	};
 
 	console.log(cartList);
 	return (
@@ -23,7 +29,6 @@ export default function CartContextProvider({ children }) {
 			value={{
 				cartList,
 				addToCart,
-				borrarLista,
 				borrarItem,
 			}}
 		>
