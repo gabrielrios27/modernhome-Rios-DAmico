@@ -65,9 +65,29 @@ a {
 	background-color: yellow;
 	color: black;
 }
+.carrito__container {
+	position: relative;
+}
 .carrito {
 	height: 49px;
 	padding: 7px 10px;
 	margin-left: 20px;
 	cursor: pointer;
+}
+
+.carrito__contador {
+	position: absolute;
+	top: 2px;
+	right: 2px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 21px;
+	height: 21px;
+	font-size: 12px;
+	font-weight: 700;
+	color: rgb(255, 251, 0);
+	background-color: rgb(27, 27, 27);
+	border-radius: 50px;
+	border: solid 1px rgb(247, 230, 0);
 }

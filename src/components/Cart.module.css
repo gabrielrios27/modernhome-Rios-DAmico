@@ -5,8 +5,60 @@
 	margin: 20px;
 	background-color: rgba(90, 90, 90, 0.226);
 }
+.cart__vacioContainer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.cart__vacioH2 {
+	padding: 20px;
+	text-align: center;
+}
+.cart__vacioBtn {
+	font-weight: 700;
+	background-color: black;
+	color: yellow;
+	border: none;
+	padding: 5px 15px;
+	margin: 5px auto;
+	cursor: pointer;
+	box-shadow: 0 0 5px rgba(15, 15, 15, 0.493);
+	border-radius: 2px;
+}
+.cart__detalle {
+	width: 300px;
+}
+.cart__precio {
+	width: 150px;
+}
 .cart__eliminar {
+	width: 40px;
+	height: 40px;
 	color: brown;
 	cursor: pointer;
-	padding: 20px;
+	padding: 10px;
+	border: none;
+	align-self: center;
+}
+.cart__containerPrecioBtn {
+	float: right;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.cart__precioTotal {
+	padding: 10px 30px;
+	margin: 20px;
+	background-color: black;
+	color: yellow;
+	border-radius: 3px;
+}
+.cart__btnTerminar {
+	margin: 0 20px;
+	padding: 10px 30px;
+	background-color: rgb(255, 255, 255);
+	color: rgb(0, 0, 0);
+	border-radius: 3px;
+	border: solid 1px black;
+	cursor: pointer;
 }

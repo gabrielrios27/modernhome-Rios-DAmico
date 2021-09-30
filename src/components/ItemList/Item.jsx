@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import style from '../ItemCount.module.css';
 
-function Item({ producto, onAdd }) {
+function Item({ producto }) {
 	return (
 		<div key={producto.id} className={style.item}>
 			<img

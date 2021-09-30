@@ -22,6 +22,12 @@ export default function CartContextProvider({ children }) {
 		let CartListAnterior = [...cartList];
 		setCartList(CartListAnterior.filter((i) => i.item.id !== product.item.id));
 	};
+	const iconCart = () => {
+		return cartList.reduce((acum, item) => acum + item.cantidad, 0);
+	};
+	const precioTotal = () => {
+		return cartList.reduce((acum, item) => acum + item.cantidad * item.item.precio, 0);
+	};
 
 	console.log(cartList);
 	return (
@@ -30,6 +36,8 @@ export default function CartContextProvider({ children }) {
 				cartList,
 				addToCart,
 				borrarItem,
+				iconCart,
+				precioTotal,
 			}}
 		>
 			{children}
