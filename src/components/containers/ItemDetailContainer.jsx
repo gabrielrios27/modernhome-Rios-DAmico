@@ -1,22 +1,23 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { getFetch } from '../../utils/Mock';
+import { getFirestore } from '../../services/getFirebase';
+
 import ItemDetail from '../ItemDetail/ItemDetail';
 
 function ItemDetailContainer() {
 	const [item, setItem] = useState({});
 	const { id } = useParams();
+	console.log(`la seleccion es : ${id}`);
+
 	useEffect(() => {
-		getFetch
-			.then((resp) => {
-				if (id) {
-					const prodfilt = resp.find((item) => item.id === parseInt(id));
-					setItem(prodfilt);
-				} else {
-					setItem(resp);
-				}
-			})
-			.catch((error) => console.log(error));
+		const db = getFirestore();
+		const itemOne = db.collection('items').doc(id);
+		console.log(itemOne);
+		itemOne
+			.get()
+			.then((result) => setItem({ id: result.id, ...result.data() }))
+			.catch((err) => console.error(err));
+		console.log(item);
 	}, [id]);
 	return (
 		<>

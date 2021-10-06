@@ -22,11 +22,11 @@ function ItemDetail({ item }) {
 		<>
 			<div key={item.id} className={style.detalle}>
 				<img
-					src={`../${item.imagen}`}
+					src={`${item.imagen}`}
 					className={style.detalle__img}
 					alt="porcelanato simil madera en living"
 				/>
-				<h4 className={style.detalle__nombre}>Porcelanato {item.nombre}</h4>
+				<h4 className={style.detalle__nombre}>{item.nombre}</h4>
 				<h5>{item.medida}</h5>
 				<h5>Caja: {item.caja}m2</h5>
 				<h5 className={style.detalle__precio}>${item.precio} x m2</h5>

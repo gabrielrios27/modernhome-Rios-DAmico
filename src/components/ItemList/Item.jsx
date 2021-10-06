@@ -9,7 +9,7 @@ function Item({ producto }) {
 				className={style.imgPiso}
 				alt="porcelanato simil madera en living"
 			/>
-			<h4 className={style.nombrePiso}>Porcelanato: {producto.nombre}</h4>
+			<h4 className={style.nombrePiso}>{producto.nombre}</h4>
 			<h5>{producto.medida}</h5>
 
 			<div className={style.itemContBtn}>
