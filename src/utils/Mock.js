@@ -305,7 +305,7 @@ const productos = [
 		nombre: 'Piedra San Juan',
 		medida: '20xLL',
 		caja: 1,
-		precio: 2,
+		precio: 2600,
 		imagen: 'pisos/piedra-sanjuan.jpg',
 		cantidad: 0,
 		pegamento: false,

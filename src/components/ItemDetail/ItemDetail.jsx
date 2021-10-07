@@ -3,16 +3,13 @@ import style from './ItemDetail.module.css';
 import ItemCount from '../ItemCount';
 import { Link } from 'react-router-dom';
 import { useCartContext } from '../../context/cartContext';
-// import { cartContext } from '../../context/cartContext';
 
 function ItemDetail({ item }) {
-	// const [cantSelec, setCantSelec] = useState(0);
 	const [cambiarBtn, setCambiarBtn] = useState(true);
 
 	const { addToCart } = useCartContext();
 	console.log(addToCart);
 	const onAdd = (cant) => {
-		// setCantSelec(cant);
 		console.log(`la cantidad es: ${cant}`);
 		setCambiarBtn(false);
 		addToCart({ item: item, cantidad: cant });

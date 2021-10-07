@@ -62,3 +62,156 @@
 	border: solid 1px black;
 	cursor: pointer;
 }
+/* estilos del formulario */
+.form {
+	position: absolute;
+	width: 382px;
+	height: 495px;
+	margin: 150px 0 0 0;
+	right: 11.798%;
+	display: flex;
+	flex-direction: column;
+}
+
+.TrabajemosJuntos {
+	width: 382px;
+	height: 65px;
+	font-family: Montserrat;
+	font-size: 36px;
+	line-height: 1.25;
+	color: #1c3e66;
+	margin: 0;
+}
+
+.campoInput {
+	position: relative;
+	width: 382px;
+	height: 56px;
+	border-radius: 4px;
+	background-color: #f9f9fb;
+	margin: 25px 0 0 0;
+	overflow: hidden;
+}
+.campoInput .label {
+	position: absolute;
+	background-color: #f9f9fb;
+	width: 66px;
+	height: 22px;
+	font-family: Montserrat;
+	font-size: 16px;
+	font-weight: 300;
+	line-height: 1.38;
+	color: #1c3e66;
+	top: 15px;
+	left: 16px;
+	transition: 0.5s;
+}
+.campoInput input {
+	margin-top: 12px;
+	width: 350px;
+	height: 22px;
+	font-family: Montserrat;
+	font-size: 16px;
+	font-weight: 300;
+	line-height: 1.38;
+	color: #1c3e66;
+	border: none;
+	background: none;
+	padding: 25px 16px 7px 16px;
+	transition: 0.5s;
+}
+.campoInput input:focus {
+	box-shadow: 0px 2px 0px 0px #1c3e66;
+	outline: none !important;
+	outline-width: 0 !important;
+}
+.campoInput input:focus ~ .label,
+.campoInput input:valid ~ .label {
+	height: 17px;
+	font-family: Montserrat;
+	font-size: 12px;
+	line-height: 1.42;
+	color: #1c3e66;
+	top: 9px;
+	font-weight: bold;
+}
+
+.campoText {
+	position: relative;
+	width: 382px;
+	height: 176px;
+	border-radius: 4px;
+	background-color: #f9f9fb;
+	margin: 25px 0 0 0;
+	transition: 1s;
+}
+.campoText textarea {
+	width: 350px;
+	height: 22px;
+	font-family: Montserrat;
+	font-size: 16px;
+	font-weight: 300;
+	line-height: 1.38;
+	color: #1c3e66;
+	border: none;
+	background: none;
+	padding: 25px 16px 129px 16px;
+	transition: 0.5s;
+	resize: none;
+}
+.campoText textarea:focus {
+	box-shadow: 0px 2px 0px 0px #1c3e66;
+	outline: none !important;
+	outline-width: 0 !important;
+}
+.campoText textarea:focus ~ .label,
+.campoText textarea:valid ~ .label {
+	height: 17px;
+	font-family: Montserrat;
+	font-size: 12px;
+	line-height: 1.42;
+	color: #1c3e66;
+	top: 9px;
+	font-weight: bold;
+}
+.campoText .label {
+	position: absolute;
+	background-color: #f9f9fb;
+	width: 66px;
+	height: 22px;
+	font-family: Montserrat;
+	font-size: 16px;
+	font-weight: 300;
+	line-height: 1.38;
+	color: #1c3e66;
+	top: 15px;
+	left: 16px;
+	transition: 0.5s;
+}
+
+.boton {
+	width: 176px;
+	height: 49px;
+	border-radius: 6px;
+	background-color: #ff5538;
+	padding: 0;
+	border: none;
+	font-family: Montserrat;
+	font-size: 14px;
+	font-weight: 600;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: 1.43;
+	letter-spacing: normal;
+	text-align: center;
+	color: #ffffff;
+	margin: 18px 0 0 0;
+	cursor: pointer;
+}
+.boton:hover {
+	box-shadow: 0 2px 4px 0 rgba(255, 85, 56, 0.36);
+}
+.boton:disabled {
+	background-color: #999999;
+	color: #2e2e2e;
+}
