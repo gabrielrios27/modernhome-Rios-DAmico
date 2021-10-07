@@ -29,6 +29,10 @@ export default function CartContextProvider({ children }) {
 		return cartList.reduce((acum, item) => acum + item.cantidad * item.item.precio, 0);
 	};
 
+	function borrarLista() {
+		setCartList([]);
+	}
+
 	console.log(cartList);
 	return (
 		<cartContext.Provider
@@ -38,6 +42,7 @@ export default function CartContextProvider({ children }) {
 				borrarItem,
 				iconCart,
 				precioTotal,
+				borrarLista,
 			}}
 		>
 			{children}

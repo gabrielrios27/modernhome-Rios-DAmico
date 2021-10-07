@@ -18,7 +18,7 @@ const inatialState = {
 };
 
 function Cart() {
-	const { cartList, borrarItem, precioTotal } = useCartContext();
+	const { cartList, borrarItem, precioTotal, borrarLista } = useCartContext();
 	const [formData, setFormData] = useState(inatialState);
 
 	function handleChange(e) {
@@ -26,41 +26,19 @@ function Cart() {
 			...formData,
 			[e.target.name]: e.target.value,
 		});
+		console.log(formData);
 	}
 
-	function handleSubmit(e) {
+	const handleSubmit = (e) => {
 		e.preventDefault();
-		const newOrder = {
-			buyer: formData,
-			items: cartList,
-			date: firebase.firestore.Timestamp.fromDate(new Date()),
-			total: precioTotal(),
-		};
-		console.log(newOrder);
-		const db = getFirestore();
-		const orders = db.collection('orders');
-
-		//controlar si hay los productos que quiero agregar
-		orders
-			.add(newOrder)
-			.then((resp) => alert(`la orden de compra es: ${resp.id}`))
-			.catch((err) => console.log(err))
-			.finally(() => {
-				setFormData(inatialState);
-				// borrarListado();
-			});
-	}
-
-	const generarOrden = () => {
-		const db = getFirestore();
-
-		const ordersCol = db.collection('orders');
-
 		let orden = {};
+
 		orden.date = firebase.firestore.Timestamp.fromDate(new Date());
 
-		orden.buyer = { name: 'Juan', phone: 'mi telefono', email: 'pepe86@AOL.com.ar' };
+		orden.buyer = formData;
+
 		orden.total = precioTotal();
+
 		orden.items = cartList.map((cartItem) => {
 			const id = cartItem.item.id;
 			const title = cartItem.item.nombre;
@@ -68,8 +46,38 @@ function Cart() {
 
 			return { id, title, price };
 		});
-
 		console.log(orden);
+		const db = getFirestore();
+		db.collection('orders')
+			.add(orden)
+			.then((resp) => alert(resp.id))
+			.catch((err) => console.log(err))
+			.finally(() => {
+				setFormData(inatialState);
+				borrarLista();
+			});
+
+		const itemsToUpdate = db.collection('items').where(
+			firebase.firestore.FieldPath.documentId(),
+			'in',
+			cartList.map((i) => i.item.id)
+		);
+
+		const batch = db.batch();
+
+		itemsToUpdate.get().then((collection) => {
+			collection.docs.forEach((docSnapshot) => {
+				batch.update(docSnapshot.ref, {
+					stock:
+						docSnapshot.data().stock -
+						cartList.find((item) => item.item.id === docSnapshot.id).cantidad,
+				});
+			});
+
+			batch.commit().then((res) => {
+				console.log('resultado batch:', res);
+			});
+		});
 	};
 
 	return (
@@ -105,28 +113,26 @@ function Cart() {
 						<div className={style.cart__precioTotal}>
 							<h3>Total: ${precioTotal()}</h3>
 						</div>
-						<form className={style.form} onSubmit={handleSubmit} onChange={handleChange}>
+						<form className={style.form} onChange={handleChange} onSubmit={handleSubmit}>
 							<h2 className={style.TrabajemosJuntos}>Terminar compra</h2>
 							<label className={style.campoInput} for="name">
-								<input type="text" id="name" value={formData.nombre} required />
+								<input type="text" name="nombre" id="name" value={formData.nombre} />
 								<span className={style.label}>Nombre</span>
 							</label>
+
 							<label className={style.campoInput} for="mail">
-								<input type="email" id="mail" value={formData.email} required />
+								<input type="email" name="email" id="mail" value={formData.email} />
 								<span className={style.label}>E-mail</span>
 							</label>
 							<label className={style.campoInput} for="mail">
-								<input type="phone" id="telefono" value={formData.tel} required />
+								<input type="phone" name="tel" id="telefono" value={formData.tel} required />
 								<span className={style.label}>Telefono</span>
 							</label>
 
-							<button className={style.boton} type="submit">
-								Pedir Cotización
+							<button onSubmit={handleSubmit} className={style.cart__btnTerminar}>
+								Terminar compra
 							</button>
 						</form>
-						<button onClick={generarOrden} className={style.cart__btnTerminar}>
-							Terminar compra
-						</button>
 					</div>
 				</>
 			)}
