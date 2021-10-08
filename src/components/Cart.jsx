@@ -7,10 +7,6 @@ import firebase from 'firebase';
 import 'firebase/firestore';
 import { getFirestore } from '../services/getFirebase';
 
-// import firebase from 'firebase/app';
-// import 'firebase/firestore';
-
-// import {getFirestore} from '../../firebase'
 const inatialState = {
 	nombre: '',
 	email: '',
@@ -18,6 +14,8 @@ const inatialState = {
 };
 
 function Cart() {
+	const [idCompra, setIdCompra] = useState('');
+	const [compra, setCompra] = useState(false);
 	const { cartList, borrarItem, precioTotal, borrarLista } = useCartContext();
 	const [formData, setFormData] = useState(inatialState);
 
@@ -50,7 +48,10 @@ function Cart() {
 		const db = getFirestore();
 		db.collection('orders')
 			.add(orden)
-			.then((resp) => alert(resp.id))
+			.then((resp) => {
+				setIdCompra(resp.id);
+				setCompra(true);
+			})
 			.catch((err) => console.log(err))
 			.finally(() => {
 				setFormData(inatialState);
@@ -84,12 +85,24 @@ function Cart() {
 		<div>
 			{cartList.length === 0 ? (
 				<>
-					<div className={style.cart__vacioContainer}>
-						<h2 className={style.cart__vacioH2}>Aun no ha elegido un producto</h2>
-						<Link to="/">
-							<button className={style.cart__vacioBtn}>Ir a Home</button>
-						</Link>
-					</div>
+					{compra ? (
+						<div className={style.cart__vacioContainer}>
+							<h2 className={style.cart__vacioH2}>A realizado su compra con exito</h2>
+							<h3 className={style.cart__vacioH3}>
+								El id de su compra es <span>{idCompra}</span>
+							</h3>
+							<Link to="/">
+								<button className={style.cart__vacioBtn}>Ir a Home</button>
+							</Link>
+						</div>
+					) : (
+						<div className={style.cart__vacioContainer}>
+							<h2 className={style.cart__vacioH2}>Aun no ha elegido un producto</h2>
+							<Link to="/">
+								<button className={style.cart__vacioBtn}>Ir a Home</button>
+							</Link>
+						</div>
+					)}
 				</>
 			) : (
 				<>

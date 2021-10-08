@@ -17,7 +17,6 @@ function ItemDetailContainer() {
 			.get()
 			.then((result) => setItem({ id: result.id, ...result.data() }))
 			.catch((err) => console.error(err));
-		console.log(item);
 	}, [id]);
 	return (
 		<>
