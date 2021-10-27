@@ -3,7 +3,6 @@
 La idea es hacer una web de fácil y rápida navegabilidad para unir al proyecto del curso js en donde desarrollé una aplicación en donde con el celular se puede leer el código qr del producto y obtener todos los detalles del mismo incluido su precio, así los clientes que se encuentren en el salón comercial podrán usar sus celulares para hacer la compra, disminuyendo la necesidad de una atención personalizada.
 
 ## E-commerce ModernHome-Allentiac
-- Live Demo: 
 - Proyecto Final React.js realizado durante la cursada de Front-End React.js en Coder House.
 - Duración 7 semanas
 - 4 Hs semanales
