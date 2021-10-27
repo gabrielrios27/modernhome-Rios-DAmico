@@ -1,74 +1,32 @@
 El proyecto es un Ecommerce para el negocio de mi familia, en el cual vendemos pisos y revestimientos. Ya contamos con una pagina web ModernHome-Allentiac en donde solo se muestran los productos.
 La idea es hacer una web de facil y rapida navegabilidad para unir al proyecto del curso js en donde desarrollé una aplicacion en donde con el celular se puede leer el codigo qr del producto y obtener todos los detalles del mismo incluido su precio, asi los clientes que se encuentren en el salon comercial podran usar sus celulares para hacer la compra, disminuyendo la necesidad de una atencion personalizada.
-No incluí dependencias extras y decidi trabajar con mis propios estilos ya que siento mayor libertad para hacer el diseño de la pagina en ves usar react-bootstrap u otro.
 
-# Getting Started with Create React App
+E-commerce ModernHome-Allentiac
+Live Demo: 
+Proyecto Final React.js realizado durante la cursada de Front-End React.js en Coder House.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Duración 7 semanas
+4 Hs semanales
+Características
 
-## Available Scripts
+Desarrollado con creat-react-app
+Se usan librería externas
+Los estilos se encuentran en archivos .module.css
+Se cumple con todos los requisitos solicitados para la app + funcionalidad Extra
+User story/brief pedido por Coder House:
+Un usuario debe poder ingresar, navegar por los productos e ir a sus detalles.
+Desde el detalle se debe poder ver la descripción, foto y precio e ingresarlo al carrito.
+Una vez que el carrito tenga al menos un producto, se deberá visualizar un listado compacto de la orden con el precio total.
+Al ingresar su nombre, apellido, teléfono e e-mail (ingresándolo dos veces para corroborar que sea correcto), debe activarse el botón de ‘realizar compra’.
+Al clickear ‘realizar compra’ debe guardarse en la base de datos una orden que tenga todos los productos, la fecha y dar feedback del número de orden.
+Funcionalidad Extra
+Barra buscador de productos por nombre
+Librerias externas a create-react-app utilizadas
+[react-router-dom] ^5.3.0 - Usado para el sistema de navegacion entre paginas, para que esta funcione como spa.
+[Firebase] - Libreria de servivios, que nos facilita y permite desarrollar el front-end, sin preocuparnos del back.end.
+Instalación
+modernhome-Rios-DAmico necesita Node.js para correr. Installar dependencias, devDependencias y arrancar el servidor.
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+$ cd modernhome-Rios-DAmico
+$ npm install
+Desarrollado por Juan Gabriel Rios D'Amico
