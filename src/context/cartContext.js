@@ -33,7 +33,6 @@ export default function CartContextProvider({ children }) {
 		setCartList([]);
 	}
 
-	console.log(cartList);
 	return (
 		<cartContext.Provider
 			value={{

@@ -6,11 +6,8 @@ import { useCartContext } from '../../context/cartContext';
 
 function ItemDetail({ item }) {
 	const [cambiarBtn, setCambiarBtn] = useState(true);
-
 	const { addToCart } = useCartContext();
-	console.log(addToCart);
 	const onAdd = (cant) => {
-		console.log(`la cantidad es: ${cant}`);
 		setCambiarBtn(false);
 		addToCart({ item: item, cantidad: cant });
 	};

@@ -15,7 +15,7 @@ function App() {
 					<NavBar />
 					<Switch>
 						<Route path="/" exact>
-							<ItemListContainer saludo={'Hola! Aquí va el catalogo de productos.'} />
+							<ItemListContainer saludo={'Catalogo de Productos.'} />
 						</Route>
 						<Route path="/categoria/:idCategoria" component={ItemListContainer} />
 

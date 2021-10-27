@@ -10,10 +10,7 @@ function ItemListContainer(props) {
 	const [productos, setProductos] = useState([]);
 	const [loading, setLoading] = useState(true);
 	const { idCategoria } = useParams();
-	console.log(idCategoria);
-	const onAdd = (cant) => {
-		console.log(`la cantidad es: ${cant}`);
-	};
+
 	useEffect(() => {
 		if (idCategoria) {
 			const dbQuery = getFirestore();
@@ -41,7 +38,7 @@ function ItemListContainer(props) {
 	return (
 		<div className={style.contenedorGral}>
 			<h1 className={style.contenidoH1}>{props.saludo}</h1>
-			{loading ? <h2>Cargando...</h2> : <ItemList productos={productos} onAdd={onAdd} />}
+			{loading ? <h2>Cargando...</h2> : <ItemList productos={productos} />}
 		</div>
 	);
 }

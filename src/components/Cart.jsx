@@ -16,6 +16,7 @@ const inatialState = {
 function Cart() {
 	const [idCompra, setIdCompra] = useState('');
 	const [compra, setCompra] = useState(false);
+	const [labelError, setLabelError] = useState(true);
 	const { cartList, borrarItem, precioTotal, borrarLista } = useCartContext();
 	const [formData, setFormData] = useState(inatialState);
 
@@ -24,61 +25,62 @@ function Cart() {
 			...formData,
 			[e.target.name]: e.target.value,
 		});
-		console.log(formData);
 	}
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		let orden = {};
+		let checkEmail = document.getElementById('checkEmail').value;
+		if (checkEmail === formData.email) {
+			let orden = {};
 
-		orden.date = firebase.firestore.Timestamp.fromDate(new Date());
+			setLabelError(true);
 
-		orden.buyer = formData;
+			orden.date = firebase.firestore.Timestamp.fromDate(new Date());
 
-		orden.total = precioTotal();
+			orden.buyer = formData;
 
-		orden.items = cartList.map((cartItem) => {
-			const id = cartItem.item.id;
-			const title = cartItem.item.nombre;
-			const price = cartItem.item.precio * cartItem.cantidad;
+			orden.total = precioTotal();
 
-			return { id, title, price };
-		});
-		console.log(orden);
-		const db = getFirestore();
-		db.collection('orders')
-			.add(orden)
-			.then((resp) => {
-				setIdCompra(resp.id);
-				setCompra(true);
-			})
-			.catch((err) => console.log(err))
-			.finally(() => {
-				setFormData(inatialState);
-				borrarLista();
+			orden.items = cartList.map((cartItem) => {
+				const id = cartItem.item.id;
+				const title = cartItem.item.nombre;
+				const price = cartItem.item.precio * cartItem.cantidad;
+
+				return { id, title, price };
 			});
+			const db = getFirestore();
+			db.collection('orders')
+				.add(orden)
+				.then((resp) => {
+					setIdCompra(resp.id);
+					setCompra(true);
+				})
+				.catch((err) => console.log(err))
+				.finally(() => {
+					setFormData(inatialState);
+					borrarLista();
+				});
 
-		const itemsToUpdate = db.collection('items').where(
-			firebase.firestore.FieldPath.documentId(),
-			'in',
-			cartList.map((i) => i.item.id)
-		);
+			const itemsToUpdate = db.collection('items').where(
+				firebase.firestore.FieldPath.documentId(),
+				'in',
+				cartList.map((i) => i.item.id)
+			);
 
-		const batch = db.batch();
+			const batch = db.batch();
 
-		itemsToUpdate.get().then((collection) => {
-			collection.docs.forEach((docSnapshot) => {
-				batch.update(docSnapshot.ref, {
-					stock:
-						docSnapshot.data().stock -
-						cartList.find((item) => item.item.id === docSnapshot.id).cantidad,
+			itemsToUpdate.get().then((collection) => {
+				collection.docs.forEach((docSnapshot) => {
+					batch.update(docSnapshot.ref, {
+						stock:
+							docSnapshot.data().stock -
+							cartList.find((item) => item.item.id === docSnapshot.id).cantidad,
+					});
 				});
 			});
-
-			batch.commit().then((res) => {
-				console.log('resultado batch:', res);
-			});
-		});
+		} else {
+			setLabelError(false);
+		}
 	};
 
 	return (
@@ -127,21 +129,27 @@ function Cart() {
 							<h3>Total: ${precioTotal()}</h3>
 						</div>
 						<form className={style.form} onChange={handleChange} onSubmit={handleSubmit}>
-							<h2 className={style.TrabajemosJuntos}>Terminar compra</h2>
+							<h2 className={style.terminarCompra}>Terminar compra</h2>
 							<label className={style.campoInput} for="name">
 								<input type="text" name="nombre" id="name" value={formData.nombre} />
 								<span className={style.label}>Nombre</span>
-							</label>
-
-							<label className={style.campoInput} for="mail">
-								<input type="email" name="email" id="mail" value={formData.email} />
-								<span className={style.label}>E-mail</span>
 							</label>
 							<label className={style.campoInput} for="mail">
 								<input type="phone" name="tel" id="telefono" value={formData.tel} required />
 								<span className={style.label}>Telefono</span>
 							</label>
+							<label className={style.campoInput} for="mail">
+								<input type="email" name="email" id="mail" value={formData.email} />
+								<span className={style.label}>E-mail</span>
+							</label>
+							<label className={style.campoInput} for="checkEmail">
+								<input type="email" name="checkEmail" id="checkEmail" />
+								<span className={style.label}>Confirme E-mail</span>
 
+								<span className={style.labelError}>
+									{labelError ? <></> : <>"El E-mail no coincide con el anterior"</>}
+								</span>
+							</label>
 							<button onSubmit={handleSubmit} className={style.cart__btnTerminar}>
 								Terminar compra
 							</button>

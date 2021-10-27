@@ -1,11 +1,11 @@
 import React from 'react';
 import Item from './Item';
 
-function ItemList({ productos, onAdd }) {
+function ItemList({ productos }) {
 	return (
 		<>
 			{productos.map((producto) => (
-				<Item producto={producto} onAdd={onAdd} />
+				<Item producto={producto} />
 			))}
 		</>
 	);
